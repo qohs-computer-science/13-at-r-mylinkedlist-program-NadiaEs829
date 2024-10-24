@@ -20,19 +20,32 @@ public boolean add(Object myObj){
     head.setNext(myObj);
 }//end add method 1
 
+public boolean addFirst(Object myObj){
+    head = myObj;
+    myObj.setNext();
+
+}//end add method
+
+public boolean addLast(Object myObj){
+    if(head.getNext() == null)
+        head.setNext(myObj);
+}//end add method
+
 //set method
 public Object set(int i, Object myObj){
-
+    
 }//end set method
 
 //get method
 public Object get(int i){
-    return //__.indexOf(i);
+    if(head!=null)
+        return head.indexOf(i);
 }//end get method
 
 //remove methods
 public Object remove(int i){
-
+    if(head!=null)
+        head.indexOf(i) = null;
 }//end remove method
 
 
