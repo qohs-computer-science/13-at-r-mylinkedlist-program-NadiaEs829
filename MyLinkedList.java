@@ -9,6 +9,8 @@ public class MyLinkedList
 //fields
 private ListNode head;
 int size;
+//change some methods to private
+
 //Constructor
 public MyLinkedList(){
     head = null;
@@ -17,23 +19,21 @@ public MyLinkedList(){
 
 ///add method
 public void add(Object myObj){
-    head.setNext(myObj);
+    head = new ListNode(myObj, null);
 }//end add method 1
 
 public void addFirst(Object myObj){
-    head = myObj;
-    myObj.setNext();
-
+    head = new ListNode(myObj,head);
 }//end add method
 
 public void addLast(Object myObj){
     if(head.getNext() == null)
-        head.setNext(myObj);
+        head = new ListNode(myObj, null);
 }//end add method
 
 //set method
 public Object set(int i, Object myObj){
-    
+    head.indexOf(i) = new ListNode(myObj);
 }//end set method
 
 //get method
@@ -48,10 +48,17 @@ public Object remove(int i){
         head.indexOf(i) = null;
 }//end remove method
 
+public Object removeFirst(){
+    if(head!=null)
+        head = new ListNode(head.getNext());
+    else 
+         //thrown in an exception
+}//end removeFirst method
+
 
 //toString method
 public String toString(){
-    return ;
+    return;
 }//end toString method
 
 }//end class
