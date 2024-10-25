@@ -16,17 +16,17 @@ public MyLinkedList(){
 }//end constructor
 
 ///add method
-public boolean add(Object myObj){
+public void add(Object myObj){
     head.setNext(myObj);
 }//end add method 1
 
-public boolean addFirst(Object myObj){
+public void addFirst(Object myObj){
     head = myObj;
     myObj.setNext();
 
 }//end add method
 
-public boolean addLast(Object myObj){
+public void addLast(Object myObj){
     if(head.getNext() == null)
         head.setNext(myObj);
 }//end add method
