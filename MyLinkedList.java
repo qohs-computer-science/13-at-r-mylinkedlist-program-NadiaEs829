@@ -9,26 +9,35 @@ public class MyLinkedList
 //fields
 private ListNode head;
 int size;
-//change some methods to private
 
 //Constructor
 public MyLinkedList(){
     head = null;
-    int size = 0;
+    size = 0;
 }//end constructor
 
+public boolean IsEmpty(){
+    if(head==null || size == 0)
+        return true;
+    else 
+        return false;
+}//end isEmpty method
+
 ///add method
-public void add(Object myObj){
-    head = new ListNode(myObj, null);
+public boolean add(Object newItemj){
+    //head = new ListNode(newItemj, null);
+    return true;
 }//end add method 1
 
-public void addFirst(Object myObj){
-    head = new ListNode(myObj,head);
+public boolean addFirst(Object newItemj){
+    head = new ListNode(newItem,head);
+    return true;
 }//end add method
 
-public void addLast(Object myObj){
+public boolean addLast(Object newItem){
     if(head.getNext() == null)
-        head = new ListNode(myObj, null);
+        head = new ListNode(newItem, null);
+    return true;
 }//end add method
 
 //set method
@@ -52,13 +61,13 @@ public Object removeFirst(){
     if(head!=null)
         head = new ListNode(head.getNext());
     else 
-         //thrown in an exception
+         throw new IndexOutOfBoundsException();
 }//end removeFirst method
 
 
 //toString method
 public String toString(){
-    return;
+    return ;
 }//end toString method
 
 }//end class
