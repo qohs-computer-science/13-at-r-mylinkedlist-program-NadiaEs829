@@ -8,16 +8,14 @@ public class MyLinkedList
 
 //fields
 private ListNode head;
-int size;
 
 //Constructor
 public MyLinkedList(){
     head = null;
-    size = 0;
 }//end constructor
 
 public boolean IsEmpty(){
-    if(head==null || size == 0)
+    if(head==null)
         return true;
     else 
         return false;
@@ -25,36 +23,41 @@ public boolean IsEmpty(){
 
 ///add method
 public boolean add(Object newItemj){
-    //head = new ListNode(newItemj, null);
     return true;
 }//end add method 1
 
 public boolean addFirst(Object newItemj){
-    head = new ListNode(newItem,head);
+    if(head!=null)
+        head = new ListNode(newItem,head);
+    else 
+        head = newItem;
     return true;
 }//end add method
 
 public boolean addLast(Object newItem){
-    if(head.getNext() == null)
-        head = new ListNode(newItem, null);
+    ListNode temp = head;
+    while(temp != null)
+        temp = temp.getNext();
+    temp = new ListNode(newItem, null);
     return true;
 }//end add method
 
 //set method
 public Object set(int i, Object myObj){
-    head.indexOf(i) = new ListNode(myObj);
+    head= new ListNode(myObj);
 }//end set method
 
 //get method
 public Object get(int i){
     if(head!=null)
-        return head.indexOf(i);
+        return head.getValue(i);
 }//end get method
 
 //remove methods
 public Object remove(int i){
-    if(head!=null)
-        head.indexOf(i) = null;
+    ListNode temp = temp.getValue(i);
+    if(temp != null)
+        temp = temp.getNext();
 }//end remove method
 
 public Object removeFirst(){
@@ -67,7 +70,7 @@ public Object removeFirst(){
 
 //toString method
 public String toString(){
-    return ;
+    return new ListNode(head,head.next());
 }//end toString method
 
 }//end class
