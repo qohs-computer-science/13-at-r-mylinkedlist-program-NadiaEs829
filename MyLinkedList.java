@@ -8,14 +8,16 @@ public class MyLinkedList
 
 //fields
 private ListNode head;
+public int size;
 
 //Constructor
 public MyLinkedList(){
     head = null;
+    size = 0;
 }//end constructor
 
 public boolean IsEmpty(){
-    if(head==null)
+    if(size == 0) 
         return true;
     else 
         return false;
@@ -26,11 +28,11 @@ public boolean add(Object newItemj){
     return true;
 }//end add method 1
 
-public boolean addFirst(Object newItemj){
+public boolean addFirst(Object newItem){
     if(head!=null)
         head = new ListNode(newItem,head);
     else 
-        head = newItem;
+        head = new ListNode (newItem, null);
     return true;
 }//end add method
 
