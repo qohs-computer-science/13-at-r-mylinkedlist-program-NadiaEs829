@@ -35,16 +35,64 @@ public boolean addFirst(Object newItemj){
 }//end add method
 
 public boolean addLast(Object newItem){
-    ListNode temp = head;
-    while(temp != null)
-        temp = temp.getNext();
-    temp = new ListNode(newItem, null);
+    if(head == null)
+        head = new ListNode(newItem,null);
+    ListNode last = head;
+    Node temp = last.getNext();
+    while(last.getNext() != null)
+        last = last.getNext();
+    temp = new ListNode(newItem,null);
     return true;
 }//end add method
 
+//remove methods
+public Object remove(int i){
+    Node temp = head;
+    Node prev = null;
+    Node prevNext = prev.getNext();
+    Node tempNext = temp.getNext();
+
+    if(temp == null)
+        return null;
+
+    if(i == 0){
+        head = null;
+        return i;
+    }//end if
+
+    for(int j = 0; temp != null && j < i; j++){
+        prev = temp;
+        temp = null;
+    }//end for loop
+  
+    if(temp != null)
+        prevNext = tempNext;
+    return i;
+}//end remove method
+
+public Object removeFirst(){
+    if(head==null)
+        throw new IndexOutOfBoundsException();
+    Node temp = head;   
+    head = head.getNext();
+
+    temp = null;
+    return head;    //returns the new head
+}//end removeFirst method
+
+public Object removeLast(){
+    if(head == null || head.getNext() == null){
+        return null;
+
+    Node secToLast = head;
+    while(secToLast.next.next != null)
+        secToLast = secToLast.next;
+    }//end method
+}//end remove 
+
 //set method
 public Object set(int i, Object myObj){
-    head= new ListNode(myObj);
+    head = new ListNode(myObj);
 }//end set method
 
 //get method
@@ -53,24 +101,9 @@ public Object get(int i){
         return head.getValue(i);
 }//end get method
 
-//remove methods
-public Object remove(int i){
-    ListNode temp = temp.getValue(i);
-    if(temp != null)
-        temp = temp.getNext();
-}//end remove method
-
-public Object removeFirst(){
-    if(head!=null)
-        head = new ListNode(head.getNext());
-    else 
-         throw new IndexOutOfBoundsException();
-}//end removeFirst method
-
-
 //toString method
-public String toString(){
-    return new ListNode(head,head.next());
-}//end toString method
+//public String toString(){
+//    return new ListNode(head,head.next());
+//}//end toString method
 
 }//end class
