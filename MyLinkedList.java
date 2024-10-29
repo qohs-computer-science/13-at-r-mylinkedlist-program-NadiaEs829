@@ -105,7 +105,7 @@ public Object get(int i){
         return head.getValue(i);
 }//end get method
 
-//toString method
+//finish toString method
 //public String toString(){
 //    return new ListNode(head,head.next());
 //}//end toString method
