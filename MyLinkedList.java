@@ -35,18 +35,20 @@ public boolean addFirst(Object newItemj){
 }//end add method
 
 public boolean addLast(Object newItem){
+    ListNode last = head;
+    ListNode temp = last.getNext();
     if(head == null)
         head = new ListNode(newItem,null);
-    ListNode last = head;
-    Node temp = last.getNext();
+    
     while(last.getNext() != null)
         last = last.getNext();
-    temp = new ListNode(newItem,null);
+    last = 
+    tempNext = new ListNode(newItem,null);
     return true;
 }//end add method
 
 //remove methods
-public Object remove(int i){
+private Object remove(int i){
     Node temp = head;
     Node prev = null;
     Node prevNext = prev.getNext();
@@ -70,7 +72,7 @@ public Object remove(int i){
     return i;
 }//end remove method
 
-public Object removeFirst(){
+private Object removeFirst(){
     if(head==null)
         throw new IndexOutOfBoundsException();
     Node temp = head;   
@@ -80,7 +82,7 @@ public Object removeFirst(){
     return head;    //returns the new head
 }//end removeFirst method
 
-public Object removeLast(){
+private Object removeLast(){
     if(head == null || head.getNext() == null){
         return null;
 
