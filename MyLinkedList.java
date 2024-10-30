@@ -25,6 +25,7 @@ public boolean IsEmpty(){
 
 ///add method
 public boolean add(Object newItemj){
+    size++;
     return true;
 }//end add method 1
 
@@ -33,15 +34,17 @@ public boolean addFirst(Object newItem){
         head = new ListNode(newItem,head);
     else 
         head = new ListNode (newItem, null);
+    size++;
     return true;
 }//end add method
 
 public boolean addLast(Object newItem){
     ListNode last = head;
     ListNode temp = last.getNext();
-    if(head == null)
+    if(head == null){
         head = new ListNode(newItem,null);
-    
+        size++;
+    }
     while(last.getNext() != null)
         last = last.getNext();
     last = 
@@ -59,11 +62,11 @@ private Object remove(int i){
     if(temp == null)
         return null;
 
-    if(i == 0){
+    if(i == 0){     //removes first value
         head = null;
         return i;
     }//end if
-
+    size--;
     for(int j = 0; temp != null && j < i; j++){
         prev = temp;
         temp = null;
@@ -81,15 +84,16 @@ private Object removeFirst(){
     head = head.getNext();
 
     temp = null;
+    size--;
     return head;    //returns the new head
 }//end removeFirst method
 
 private Object removeLast(){
     if(head == null || head.getNext() == null){
         return null;
-
-    Node secToLast = head;
-    while(secToLast.next.next != null)
+    size--;
+    ListNode secToLast = head;
+    while(secToLast.getNext().getNext() != null)
         secToLast = secToLast.next;
     }//end method
 }//end remove 
