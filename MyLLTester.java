@@ -27,7 +27,9 @@ public class MyLLTester
   myList.removeFirst();       //removed "60"
   System.out.println("Current list after removing the first value: " + myList);
   myList.removeLast();        // removed Spongebob
-  System.out.println("Current list after removing last value: " + myList); //current list
+  System.out.println("Current list after removing last value: ");
+  toString();
+  //System.out.println("Current list after removing last value: " + myList); //current list
   System.out.println("The value of last index is: " + myList.get(6));
   } // end main
 } // end class

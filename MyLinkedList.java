@@ -1,11 +1,6 @@
 //Nadia Escamilla, pd: 7, date: 10/22/24
 public class MyLinkedList
 {
-//Day 1: Add fields, create constructor, create at least 1 add method, write toString
-//Day 2: Add additional constructors, set and get methods
-//Day 3: Add remove methods
-//Day 4: debug
-
 //fields
 private ListNode head;
 public int size;
@@ -48,7 +43,7 @@ public boolean addLast(Object newItem){
     while(last.getNext() != null)
         last = last.getNext();
     last = 
-    tempNext = new ListNode(newItem,null);
+    temp = new ListNode(newItem,null);
     return true;
 }//end add method
 
@@ -109,9 +104,17 @@ public Object get(int i){
         return head.getValue(i);
 }//end get method
 
-//finish toString method
-//public String toString(){
-//    return new ListNode(head,head.next());
-//}//end toString method
+//toString method
+public String toString(){
+    String currentList = "";
+    ListNode temp = head;
+    int index = 1;
+    while(temp != null){
+        currentList += (index + ": " + temp.getValue());
+        temp = temp.getNext();
+        index++;
+    }//end while
+    return currentList;
+}//end toString method
 
 }//end class
