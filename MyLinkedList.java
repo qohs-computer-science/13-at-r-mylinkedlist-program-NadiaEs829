@@ -1,4 +1,5 @@
 //Nadia Escamilla, pd: 7, date: 10/22/24
+//This class' purpose is to have defined methods to change myList in the testerfiles 
 public class MyLinkedList
 {
 //fields
@@ -34,17 +35,23 @@ public boolean addFirst(Object newItem){
 }//end add method
 
 public boolean addLast(Object newItem){
-    ListNode last = head;
-    ListNode temp = last.getNext();
-    if(head == null){
+    Node n = newItem;
+    Node last = new Node(newItem);
+    Node temp = last.getNext();
+    Node temp2 = temp.getNext();
+    Node temp3 = head.getNext();
+    if(size == 0){
+        temp = n;
         head = new ListNode(newItem,null);
         size++;
-    }
-    while(last.getNext() != null)
-        last = last.getNext();
-    last = 
-    temp = new ListNode(newItem,null);
+    }//end if
+    else {
+        temp = n;
+        last = n;
+        size++;
+    }//end else
     return true;
+
 }//end add method
 
 //remove methods
@@ -88,8 +95,10 @@ private Object removeLast(){
         return null;
     size--;
     ListNode secToLast = head;
-    while(secToLast.getNext().getNext() != null)
+    while(secToLast.getNext().getNext() != null){
         secToLast = secToLast.next;
+        size--;
+    }//end while
     }//end method
 }//end remove 
 
@@ -105,14 +114,18 @@ public Object get(int i){
 }//end get method
 
 //toString method
+public int size(){
+    return size;
+}//end getSize 
+
 public String toString(){
     String currentList = "";
-    ListNode temp = head;
-    int index = 1;
+    ListNode temp = head.getNext();
+    int position = 0;
     while(temp != null){
-        currentList += (index + ": " + temp.getValue());
+        position++;
+        currentList = (position + ": ") + (currentList + temp.getValue() + " ");
         temp = temp.getNext();
-        index++;
     }//end while
     return currentList;
 }//end toString method
